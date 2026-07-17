@@ -1,0 +1,41 @@
+# robots.txt — Merit Trims (Merit Trims (Wenzhou) Co., Ltd.)
+# 上线前请将 sitemap 域名替换为你的真实域名
+
+User-agent: *
+Allow: /
+
+# ---- AI / answer-engine crawlers (AEO) ----
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://www.merittrims.com/sitemap.xml

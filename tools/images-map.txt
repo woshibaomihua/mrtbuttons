@@ -1,0 +1,31 @@
+# images-map.txt — 图片下载映射表
+# 格式：目标文件名 = 图片URL
+# 左边的目标文件名【不要改】（与网站 HTML 引用一一对应），
+# 右边换成你用 grab_images.js 提取到的对应图片地址。
+#
+# 不需要全部填——填几行就替换几张，没填的保留 SVG 占位图。
+# 以 # 开头的行是注释，会被忽略。
+
+# ── 首页首屏大图（选最有质感的一张主打产品图）──
+hero-button-drawing = https://粘贴图片地址到这里
+
+# ── 6 个品类卡（首页 + 对应品类页共用）──
+cat-resin-buttons   = https://树脂或聚酯纽扣的图片地址
+cat-metal-buttons   = https://金属纽扣的图片地址
+cat-snap-buttons    = https://四合扣的图片地址
+cat-jeans-buttons   = https://牛仔扣铆钉的图片地址
+cat-natural-buttons = https://corozo果实扣或木质扣的图片地址
+cat-hardware        = https://绳扣鸡眼扣插扣的图片地址
+
+# ── 关于我们页：工厂/车间/质检实拍 ──
+factory-placeholder = https://工厂图片地址
+
+# ── NEW: trims & accessories category photos (added by optimization) ──
+# These show in-browser via remote fallback now; run replace_images.py to localise.
+cat-rhinestone     = https://m.media-amazon.com/images/I/714ceB02jIL._AC_UF894,1000_QL80_.jpg
+cat-zippers        = https://m.media-amazon.com/images/I/71v1etJOQTL._AC_UF894,1000_QL80_.jpg
+cat-cord-stoppers  = https://m.media-amazon.com/images/I/71lSXR7yoJL._AC_UY1000_.jpg
+cat-cords-webbing  = https://m.media-amazon.com/images/I/81Oj6alCdcL._AC_UF894,1000_QL80_.jpg
+cat-buckles        = https://m.media-amazon.com/images/I/619UZHeodPL._AC_UF894,1000_QL80_.jpg
+cat-eyelets        = https://m.media-amazon.com/images/I/71Js9Gl2ieL._AC_UF894,1000_QL80_.jpg
+cat-labels         = https://m.media-amazon.com/images/I/61l5RHwAG3L._AC_UF894,1000_QL80_.jpg
