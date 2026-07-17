@@ -129,7 +129,7 @@ contact_body = f'''
 
 <section class="band"><div class="wrap split">
   <div>
-    <form class="inq" action="https://formspree.io/f/xnjybvyy" method="POST" data-email="{EMAIL}">
+    <form class="inq" action="https://formspree.io/f/PENDING_NEW_FORM_ID" method="POST" data-email="{EMAIL}">
       <h2 style="margin-bottom:6px">Send your inquiry</h2>
       <p style="color:var(--grey);font-size:0.92rem">Fields marked <span style="color:#B3382C">*</span> are required.</p>
       <div class="row">
