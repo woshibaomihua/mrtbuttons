@@ -1,5 +1,4 @@
 # robots.txt — Merit Trims (Merit Trims (Wenzhou) Co., Ltd.)
-# 上线前请将 sitemap 域名替换为你的真实域名
 
 User-agent: *
 Allow: /
