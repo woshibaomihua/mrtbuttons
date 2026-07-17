@@ -9,7 +9,7 @@
 """
 import re, json, os, glob, html
 
-DOMAIN = "https://www.merittrims.com"
+DOMAIN = "https://mrtbuttons.com"
 WA = "8615869483966"
 EMAIL = "maggie@merittrims.com"
 

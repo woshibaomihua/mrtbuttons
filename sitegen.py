@@ -3,7 +3,7 @@
 import os, json
 
 ROOT = "/home/claude/merittrims-site"
-DOMAIN = "https://www.merittrims.com"   # ← 上线前全局替换为你的真实域名
+DOMAIN = "https://mrtbuttons.com"   # ← 上线前全局替换为你的真实域名
 COMPANY = "Merit Trims (Wenzhou) Co., Ltd."
 BRAND = "Merit Trims"
 EMAIL = "maggie@merittrims.com"          # ← 替换为真实邮箱

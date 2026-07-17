@@ -38,4 +38,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://www.merittrims.com/sitemap.xml
+Sitemap: https://mrtbuttons.com/sitemap.xml
