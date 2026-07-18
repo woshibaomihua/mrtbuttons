@@ -34,11 +34,11 @@ SEO/AEO 已内置：每页独立 title/description/canonical/OG 标签、JSON-LD
 
 | 当前值 | 用途 | 出现位置 |
 |---|---|---|
-| `https://www.merittrims.com` | 真实域名（含 https://，不带末尾斜杠） | 所有 HTML、sitemap.xml、robots.txt、llms.txt |
+| `https://mrtbuttons.com` | 真实域名（含 https://，不带末尾斜杠；`www.` 子域尚未配 DNS，暂勿使用） | 所有 HTML、sitemap.xml、robots.txt、llms.txt |
 | `maggie@merittrims.com` | 业务邮箱 | 所有 HTML、llms.txt |
 | `+86 15869483966` | 电话/WhatsApp 展示文案 | 所有 HTML、llms.txt |
 | `8615869483966` | WhatsApp 链接号码（国家码+号码，无+号无空格） | 所有 HTML、JS、llms.txt |
-| `YOUR_FORM_ID` | 待配置 Formspree 表单 ID（见下文第五节） | contact.html 等含表单页面 |
+| `PENDING_NEW_FORM_ID` | 待配置 Formspree 表单 ID（见下文第五节） | contact.html / index.html / instant-quote.html |
 
 > 公司地址目前写的是 "Wenzhou, Zhejiang, China"，如需详细地址请搜索替换补充。
 
@@ -69,7 +69,7 @@ SEO/AEO 已内置：每页独立 title/description/canonical/OG 标签、JSON-LD
 ## 五、询盘表单（Formspree）
 
 1. 注册 formspree.io（免费档每月 50 条询盘够用）→ New Form → 拿到形如 `mqkrxxxx` 的 ID。
-2. 全局把 `YOUR_FORM_ID` 替换为该 ID。
+2. 全局把 `PENDING_NEW_FORM_ID` 替换为该 ID（`assets/js/main.js` 已能识别该占位符并自动降级为 mailto；配好真 ID 后即走 Formspree 提交）。
 3. 在 Formspree 后台把通知邮箱设为你的业务邮箱。
 4. 未配置 Formspree 时表单会自动降级为打开邮件客户端（mailto），不会丢询盘入口。
 5. WhatsApp 浮动按钮全站常驻，替换号码后即可直达对话。
@@ -85,5 +85,5 @@ SEO/AEO 已内置：每页独立 title/description/canonical/OG 标签、JSON-LD
 ## 七、日常修改
 
 - 改文字：直接编辑对应 HTML 文件，提交到 GitHub，Vercel 自动重新部署（约 30 秒）。
-- 批量改版：修改 `sitegen.py` / `gen_core.py` / `gen_pages.py` 后本地运行 `python3 gen_core.py && python3 gen_pages.py` 重新生成。
-- 新增页面后记得更新 `sitemap.xml`（或改 `gen_sitemap.py` 后重跑）。
+- ⚠️ **不要运行 `sitegen.py` / `gen_*.py` 生成器。** 它们只是最初搭骨架用的，现在已严重过时（缺 7 个辅料/五金品类页、首页是旧版结构、`gen_sitemap.py` 只有 16 条 URL 而线上已 27 条），且输出路径写死为 Linux `/home/claude/merittrims-site`，在本机根本不写回本仓库。**当前站点是在生成结果上手工迭代的，重跑会覆盖并回退现有页面。** 改版一律直接编辑对应 HTML。
+- 新增页面后，手工在 `sitemap.xml` 里补一条 `<url>`（不带末尾斜杠，与 `cleanUrls` 一致）。

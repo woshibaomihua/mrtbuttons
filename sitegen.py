@@ -1,8 +1,18 @@
 #!/usr/bin/env python3
-"""sitegen.py — shared layout, SEO meta, JSON-LD helpers for Merit Trims site."""
+"""sitegen.py — shared layout, SEO meta, JSON-LD helpers for Merit Trims site.
+
+⚠️  DEPRECATED — DO NOT RUN THIS OR ANY gen_*.py SCRIPT.
+This was the one-off scaffold generator. The live site has since been
+hand-maintained and is the single source of truth: it has 28 pages (incl. 7
+hardware/trim category pages), an updated homepage, and a 27-URL sitemap that
+these generators do NOT reproduce. ROOT below is also a stale Linux path that
+does not exist on this machine. Re-running gen_core.py / gen_pages.py /
+gen_sitemap.py will OVERWRITE and regress the current pages.
+To change the site, edit the HTML files directly.
+"""
 import os, json
 
-ROOT = "/home/claude/merittrims-site"
+ROOT = "/home/claude/merittrims-site"  # STALE PATH — do not run this generator
 DOMAIN = "https://mrtbuttons.com"   # ← 上线前全局替换为你的真实域名
 COMPANY = "Merit Trims (Wenzhou) Co., Ltd."
 BRAND = "Merit Trims"

@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('form.inq, form.mini-form').forEach(function (form) {
     form.addEventListener('submit', function (e) {
       var action = form.getAttribute('action') || '';
-      if (action.indexOf('YOUR_FORM_ID') !== -1) {
+      if (action.indexOf('YOUR_FORM_ID') !== -1 || action.indexOf('PENDING_NEW_FORM_ID') !== -1) {
         // not configured yet — fall back to mailto so inquiries are never lost
         e.preventDefault();
         var data = new FormData(form);
