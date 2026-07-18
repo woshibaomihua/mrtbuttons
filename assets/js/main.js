@@ -464,10 +464,37 @@ document.addEventListener('DOMContentLoaded', function () {
     return url.pathname + url.search;
   }
 
+  var WA_NUMBER = '8615869483966';
+  function isMobileView() {
+    return !!(window.matchMedia && window.matchMedia('(max-width: 820px)').matches);
+  }
+  function buildWhatsappUrl(link) {
+    var card = link.closest('.sheet-card, .product-showcase .card, .card');
+    var lightbox = link.closest('.product-lightbox');
+    var product = '';
+    if (lightbox) product = cleanText(lightbox.querySelector('.product-lightbox__title'));
+    if (!product && card) product = cleanText(card.querySelector('h3'));
+    var line = productLine();
+    var subject = product || line || 'your buttons and trims';
+    var msg = 'Hello Merit Trims, I found your website (mrtbuttons.com) and I am interested in ' + subject;
+    if (product && line && line !== product) msg += ' (' + line + ')';
+    msg += '. Please send me the price, MOQ and sample details. Thank you!';
+    return 'https://api.whatsapp.com/send/?phone=' + WA_NUMBER +
+      '&text=' + encodeURIComponent(msg) + '&type=phone_number&app_absent=0';
+  }
+
+  // "Request price & samples": on mobile open WhatsApp with a product-specific
+  // message; on desktop keep the richer /contact RFQ form (with file upload).
   document.addEventListener('click', function (e) {
     var link = e.target.closest && e.target.closest('a.price-sample-cta');
     if (!link) return;
-    link.setAttribute('href', buildRfqUrl(link));
+    if (isMobileView()) {
+      link.setAttribute('href', buildWhatsappUrl(link));
+      link.setAttribute('target', '_blank');
+      link.setAttribute('rel', 'noopener');
+    } else {
+      link.setAttribute('href', buildRfqUrl(link));
+    }
   }, true);
 
   document.addEventListener('DOMContentLoaded', function () {
@@ -682,6 +709,30 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       });
       if (files.length) addFiles(files);
+    });
+  });
+})();
+
+/* ===== WhatsApp entry points: prefill a friendly, context-aware message ===== */
+(function () {
+  var WA_NUMBER = '8615869483966';
+  document.addEventListener('DOMContentLoaded', function () {
+    var h1 = document.querySelector('.page-hero h1, h1');
+    var line = h1 ? (h1.textContent || '').replace(/\s+/g, ' ').trim() : '';
+    var onProduct = /\/products\//.test(location.pathname) && line;
+    var msg = 'Hello Merit Trims, I found your website (mrtbuttons.com) and would like to discuss ' +
+      (onProduct ? line.toLowerCase() : 'custom garment buttons and trims') +
+      ' — could you help with price, MOQ and samples?';
+    var href = 'https://api.whatsapp.com/send/?phone=' + WA_NUMBER +
+      '&text=' + encodeURIComponent(msg) + '&type=phone_number&app_absent=0';
+    var links = document.querySelectorAll(
+      'a[href*="wa.me/' + WA_NUMBER + '"], a[href*="api.whatsapp.com/send"][href*="' + WA_NUMBER + '"]');
+    Array.prototype.forEach.call(links, function (a) {
+      if (a.classList.contains('price-sample-cta')) return;        // handled per-product on click
+      var cur = a.getAttribute('href') || '';
+      if (/[?&]text=/.test(cur)) return;                            // already has a custom message
+      a.setAttribute('href', href);
+      if (!a.getAttribute('rel')) a.setAttribute('rel', 'noopener');
     });
   });
 })();
