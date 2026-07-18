@@ -476,9 +476,9 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!product && card) product = cleanText(card.querySelector('h3'));
     var line = productLine();
     var subject = product || line || 'your buttons and trims';
-    var msg = 'Hello Merit Trims, I found your website (mrtbuttons.com) and I am interested in ' + subject;
+    var msg = 'Hello Merit Trims, I just viewed ' + subject;
     if (product && line && line !== product) msg += ' (' + line + ')';
-    msg += '. Please send me the price, MOQ and sample details. Thank you!';
+    msg += ' on mrtbuttons.com and would like the price, MOQ and samples. Can we chat?';
     return 'https://api.whatsapp.com/send/?phone=' + WA_NUMBER +
       '&text=' + encodeURIComponent(msg) + '&type=phone_number&app_absent=0';
   }
@@ -720,18 +720,16 @@ document.addEventListener('DOMContentLoaded', function () {
     var h1 = document.querySelector('.page-hero h1, h1');
     var line = h1 ? (h1.textContent || '').replace(/\s+/g, ' ').trim() : '';
     var onProduct = /\/products\//.test(location.pathname) && line;
-    var msg = 'Hello Merit Trims, I found your website (mrtbuttons.com) and would like to discuss ' +
-      (onProduct ? line.toLowerCase() : 'custom garment buttons and trims') +
-      ' — could you help with price, MOQ and samples?';
+    var msg = 'Hello Merit Trims, I just viewed ' +
+      (onProduct ? 'your ' + line.toLowerCase() : 'your website (mrtbuttons.com)') +
+      ' and would like to discuss price, MOQ and samples. Can we chat?';
     var href = 'https://api.whatsapp.com/send/?phone=' + WA_NUMBER +
       '&text=' + encodeURIComponent(msg) + '&type=phone_number&app_absent=0';
     var links = document.querySelectorAll(
       'a[href*="wa.me/' + WA_NUMBER + '"], a[href*="api.whatsapp.com/send"][href*="' + WA_NUMBER + '"]');
     Array.prototype.forEach.call(links, function (a) {
-      if (a.classList.contains('price-sample-cta')) return;        // handled per-product on click
-      var cur = a.getAttribute('href') || '';
-      if (/[?&]text=/.test(cur)) return;                            // already has a custom message
-      a.setAttribute('href', href);
+      if (a.classList.contains('price-sample-cta')) return;        // per-product CTA handled on click
+      a.setAttribute('href', href);                                // upgrade the older weak "Hi, I'd like a quote" text
       if (!a.getAttribute('rel')) a.setAttribute('rel', 'noopener');
     });
   });
