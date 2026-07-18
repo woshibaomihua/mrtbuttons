@@ -10,7 +10,7 @@ real contact details.
 - Email → **mrtmaggie0010@gmail.com** (every page, footer, schema, form fallback)
 - WhatsApp → **+86 15869483966** (`wa.me/8615869483966`) — topbar, footer, float button, tools
 - Domain → **merittrims.com** across canonical / OG / sitemap / schema / llms.txt
-- Rebranded "Merit Button" → "Merit Trims"; legal entity → "Merit Trims (Wenzhou) Co., Ltd."
+- Rebranded "Merit Button" → "Merit Trims"; legal entity → "Wenzhou Merit Garment Co., Ltd."
 
 ### Performance (the biggest defect fixed)
 - **All raster images converted to WebP** (OG image → compressed JPG for social compatibility) and resized to sensible caps.

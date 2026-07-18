@@ -78,7 +78,7 @@ about_body = f'''
 <div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <span>About</span></nav></div>
 <section class="page-hero"><div class="wrap">
   <p class="eyebrow">About us</p>
-  <h1>Merit Trims (Wenzhou) Co., Ltd.</h1>
+  <h1>Wenzhou Merit Garment Co., Ltd.</h1>
   <p class="lead">A factory-direct button and trims manufacturer in Wenzhou, Zhejiang — the city that makes most of the world's garment buttons — exporting to apparel brands, garment factories and trim wholesalers in 60+ countries since 2008.</p>
 </div></section>
 
@@ -113,7 +113,7 @@ about_body = f'''
 '''
 write_page("about.html", layout(
     page_id="about",
-    title="About Merit Trims (Wenzhou) Co., Ltd. — Button Factory in Wenzhou, China",
+    title="About Wenzhou Merit Garment Co., Ltd. — Button Factory in Wenzhou, China",
     description="Merit Trims is a factory-direct garment button manufacturer in Wenzhou, China, exporting resin, metal, snap and natural buttons to 60+ countries since 2008.",
     canonical_path="/about", body=about_body,
     jsonld=[breadcrumb_ld([("Home", "/"), ("About", None)])], depth=0))

@@ -1,4 +1,4 @@
-# robots.txt — Merit Trims (Merit Trims (Wenzhou) Co., Ltd.)
+# robots.txt — Merit Trims (Wenzhou Merit Garment Co., Ltd.)
 
 User-agent: *
 Allow: /

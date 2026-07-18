@@ -14,7 +14,7 @@ import os, json
 
 ROOT = "/home/claude/merittrims-site"  # STALE PATH — do not run this generator
 DOMAIN = "https://mrtbuttons.com"   # ← 上线前全局替换为你的真实域名
-COMPANY = "Merit Trims (Wenzhou) Co., Ltd."
+COMPANY = "Wenzhou Merit Garment Co., Ltd."
 BRAND = "Merit Trims"
 EMAIL = "mrtmaggie0010@gmail.com"          # ← 替换为真实邮箱
 PHONE = "+86 15869483966"               # ← 替换为真实电话
@@ -89,7 +89,7 @@ def layout(*, page_id, title, description, canonical_path, body, jsonld=None,
   <span><a href="mailto:{EMAIL}">{EMAIL}</a> &nbsp;·&nbsp; <a href="https://wa.me/{WHATSAPP}" rel="noopener">WhatsApp</a></span>
 </div></div>
 <header class="site"><div class="wrap nav">
-  <a class="brand" href="/" aria-label="{BRAND} home">{LOGO_SVG}<span>Merit Trims<small>Merit Trims (Wenzhou)</small></span></a>
+  <a class="brand" href="/" aria-label="{BRAND} home">{LOGO_SVG}<span>Merit Trims<small>Wenzhou Merit Garment Co., Ltd.</small></span></a>
   <button class="hamb" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
   <nav class="menu" aria-label="Main">
     <a href="/"{nav_active(page_id,'home')}>Home</a>
