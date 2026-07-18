@@ -9,4 +9,4 @@
 - Converted SVG visual assets to raster files; package contains no `.svg` files and no `.svg` references.
 - Removed inactive GA4 placeholder code because no real GA4 Measurement ID was supplied.
 - Checked local static references: 0 missing local image/CSS/JS/favicon references found.
-- Formspree still requires a real form ID before production if online form capture is needed. Current JavaScript keeps a mailto fallback for `maggie@merittrims.com`.
+- Formspree still requires a real form ID before production if online form capture is needed. Current JavaScript keeps a mailto fallback for `mrtmaggie0010@gmail.com`.

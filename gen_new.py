@@ -11,7 +11,7 @@ import re, json, os, glob, html
 
 DOMAIN = "https://mrtbuttons.com"
 WA = "8615869483966"
-EMAIL = "maggie@merittrims.com"
+EMAIL = "mrtmaggie0010@gmail.com"
 
 html_files = glob.glob("**/*.html", recursive=True)
 
@@ -157,7 +157,7 @@ quote_main = """
         <div class="t-q-row"><span>Est. order value</span><b id="q-value">—</b></div>
         <div class="t-q-row"><span>Sampling</span><b>5–7 days</b></div>
         <p class="t-q-note">Indicative only, based on our live range. Final price depends on size, plating and logo — confirmed in your written quote.</p>
-        <form id="q-form" class="inq" action="https://formspree.io/f/PENDING_NEW_FORM_ID" method="POST" data-email="maggie@merittrims.com">
+        <form id="q-form" class="inq" action="https://formspree.io/f/xykrervj" method="POST" data-email="mrtmaggie0010@gmail.com">
           <input type="hidden" name="_subject" value="Instant-quote request">
           <input type="hidden" name="configured_spec" id="q-spec">
           <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">

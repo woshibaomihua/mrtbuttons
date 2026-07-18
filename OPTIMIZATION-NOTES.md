@@ -7,7 +7,7 @@ real contact details.
 ## ✅ Done in this pass
 
 ### Contact / brand (your data)
-- Email → **maggie@merittrims.com** (every page, footer, schema, form fallback)
+- Email → **mrtmaggie0010@gmail.com** (every page, footer, schema, form fallback)
 - WhatsApp → **+86 15869483966** (`wa.me/8615869483966`) — topbar, footer, float button, tools
 - Domain → **merittrims.com** across canonical / OG / sitemap / schema / llms.txt
 - Rebranded "Merit Button" → "Merit Trims"; legal entity → "Merit Trims (Wenzhou) Co., Ltd."
@@ -33,7 +33,7 @@ real contact details.
 - `sitemap.xml` (now 18 URLs) and `llms.txt` updated with the new pages and domain.
 
 ## 🔴 Before you launch (P0 — needs your accounts/data)
-1. **Form backend** — create a free Formspree form and replace `YOUR_FORM_ID` in `contact.html`, `index.html`, `instant-quote.html` (`action="https://formspree.io/f/…"`). Until then the form falls back to a `mailto:maggie@merittrims.com`.
+1. **Form backend** — create a free Formspree form and replace `YOUR_FORM_ID` in `contact.html`, `index.html`, `instant-quote.html` (`action="https://formspree.io/f/…"`). Until then the form falls back to a `mailto:mrtmaggie0010@gmail.com`.
 2. **GA4** — replace `G-XXXXXXXXXX` (3 lines per page) and uncomment the `gtag('config', …)` line; connect Google Search Console + Bing.
 3. **Verify the hard facts** — Wenzhou address, "MOQ 500", "12-hour quote", "exporting since 2008", "98% on-time", "60+ countries". Keep only what is true.
 4. **Certifications** — swap the badge SVGs for certificates you actually hold, or keep the "available on request" wording and remove badges you can't back up.

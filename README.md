@@ -35,10 +35,10 @@ SEO/AEO 已内置：每页独立 title/description/canonical/OG 标签、JSON-LD
 | 当前值 | 用途 | 出现位置 |
 |---|---|---|
 | `https://mrtbuttons.com` | 真实域名（含 https://，不带末尾斜杠；`www.` 子域尚未配 DNS，暂勿使用） | 所有 HTML、sitemap.xml、robots.txt、llms.txt |
-| `maggie@merittrims.com` | 业务邮箱 | 所有 HTML、llms.txt |
+| `mrtmaggie0010@gmail.com` | 业务邮箱 | 所有 HTML、llms.txt |
 | `+86 15869483966` | 电话/WhatsApp 展示文案 | 所有 HTML、llms.txt |
 | `8615869483966` | WhatsApp 链接号码（国家码+号码，无+号无空格） | 所有 HTML、JS、llms.txt |
-| `PENDING_NEW_FORM_ID` | 待配置 Formspree 表单 ID（见下文第五节） | contact.html / index.html / instant-quote.html |
+| `xykrervj` | Formspree 表单 ID（已配置；换表单见第五节） | contact.html / index.html / instant-quote.html |
 
 > 公司地址目前写的是 "Wenzhou, Zhejiang, China"，如需详细地址请搜索替换补充。
 
@@ -68,11 +68,13 @@ SEO/AEO 已内置：每页独立 title/description/canonical/OG 标签、JSON-LD
 
 ## 五、询盘表单（Formspree）
 
-1. 注册 formspree.io（免费档每月 50 条询盘够用）→ New Form → 拿到形如 `mqkrxxxx` 的 ID。
-2. 全局把 `PENDING_NEW_FORM_ID` 替换为该 ID（`assets/js/main.js` 已能识别该占位符并自动降级为 mailto；配好真 ID 后即走 Formspree 提交）。
-3. 在 Formspree 后台把通知邮箱设为你的业务邮箱。
-4. 未配置 Formspree 时表单会自动降级为打开邮件客户端（mailto），不会丢询盘入口。
-5. WhatsApp 浮动按钮全站常驻，替换号码后即可直达对话。
+**当前状态：3 个表单（首页 / contact / instant-quote）已配置 Formspree ID `xykrervj`。**
+
+1. **通知邮箱（关键）**：务必在 [Formspree 后台](https://formspree.io) 把该表单的通知邮箱设为 `mrtmaggie0010@gmail.com`。询盘发往哪个邮箱由 Formspree 后台决定，**与页面上显示的邮箱无关**——页面邮箱只用于展示和 mailto 兜底。
+2. **首次确认**：新表单第一次收到提交时，Formspree 会发一封确认邮件到通知邮箱，**点确认后**表单才会开始转发询盘，请到收件箱确认。
+3. **上线自测**：到 https://mrtbuttons.com/contact 真填一次提交，确认能在 gmail 收到。
+4. 换 ID：全局把 `formspree.io/f/xykrervj` 替换为新 ID 即可。`assets/js/main.js` 仍保留兜底——action 里若是未配置占位符会自动降级为 mailto，不丢询盘。
+5. WhatsApp 浮动按钮全站常驻。
 
 ## 六、上线后 SEO 动作清单
 
