@@ -2041,3 +2041,33 @@ section.band .grid.c3 .card .more.btn-spec::after {
 }
 .blog-grid .card .body { min-height: 260px; }
 .blog-grid .card .more { margin-top: auto; }
+
+/* ===== Mobile sticky inquiry bar =====
+   Reuses the .sticky-quote base (style.css): fixed bottom, dark glass,
+   hidden via translateY(110%) until .show. Mobile-only: on desktop the
+   sticky header already keeps "Get a Quote" in reach. */
+.sticky-quote { display: none; }
+@media (max-width: 820px) {
+  .sticky-quote {
+    display: block;
+    padding: 10px 0;
+    padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+  }
+  .sticky-quote .wrap { gap: 10px; padding-left: 14px; padding-right: 8px; }
+  .sticky-quote p { flex: 1 1 auto; line-height: 1.25; }
+  .sticky-quote .actions { gap: 8px; }
+  .sticky-quote .actions .btn {
+    min-height: 44px;                 /* touch target floor */
+    display: inline-flex; align-items: center;
+    padding: 0 14px; font-size: .85rem; white-space: nowrap; border-radius: 4px;
+  }
+  .sticky-quote .actions .btn:not(.brass) {
+    background: rgba(255,255,255,.12); color: #fff;
+    border: 1px solid rgba(255,255,255,.38);
+  }
+  .sticky-quote .close { min-width: 44px; min-height: 44px; line-height: 1; }
+  body.has-inqbar { padding-bottom: 78px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sticky-quote { transition: none; }
+}

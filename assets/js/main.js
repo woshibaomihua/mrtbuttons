@@ -734,3 +734,60 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 })();
+
+/* ===== Mobile sticky inquiry bar: WhatsApp + quote form, always in reach =====
+   Markup is injected here so all pages get it without touching 29 HTML files.
+   Styling reuses .sticky-quote (style.css) + mobile rules in v3.css. */
+(function () {
+  var WA_NUMBER = '8615869483966';
+  var SKIP = /^\/(contact|instant-quote)\/?$/;   // these pages ARE the form
+  var KEY = 'mrt-inqbar-dismissed';
+
+  document.addEventListener('DOMContentLoaded', function () {
+    if (SKIP.test(location.pathname)) return;
+    if (document.querySelector('.sticky-quote')) return;
+    try { if (sessionStorage.getItem(KEY) === '1') return; } catch (e) {}
+
+    var h1 = document.querySelector('.page-hero h1, h1');
+    var line = h1 ? (h1.textContent || '').replace(/\s+/g, ' ').trim() : '';
+    var onProduct = /\/products\//.test(location.pathname) && line;
+    var msg = 'Hello Merit Trims, I found your website (mrtbuttons.com) and would like to discuss ' +
+      (onProduct ? line.toLowerCase() : 'custom garment buttons and trims') +
+      ' — could you help with price, MOQ and samples?';
+    var wa = 'https://api.whatsapp.com/send/?phone=' + WA_NUMBER +
+      '&text=' + encodeURIComponent(msg) + '&type=phone_number&app_absent=0';
+
+    var bar = document.createElement('div');
+    bar.className = 'sticky-quote';
+    bar.setAttribute('role', 'complementary');
+    bar.setAttribute('aria-label', 'Quick inquiry');
+    bar.innerHTML =
+      '<div class="wrap">' +
+        '<p><b>Factory-direct quote</b><span>MOQ from 500 pcs</span></p>' +
+        '<div class="actions">' +
+          '<a class="btn sm" data-inq="wa" target="_blank" rel="noopener">WhatsApp</a>' +
+          '<a class="btn sm brass" href="/contact">Get a Quote</a>' +
+          '<button class="close" type="button" aria-label="Dismiss inquiry bar">&times;</button>' +
+        '</div>' +
+      '</div>';
+    bar.querySelector('[data-inq="wa"]').setAttribute('href', wa);
+    document.body.appendChild(bar);
+    document.body.classList.add('has-inqbar');
+
+    bar.querySelector('.close').addEventListener('click', function () {
+      bar.classList.remove('show');
+      document.body.classList.remove('has-inqbar');
+      try { sessionStorage.setItem(KEY, '1'); } catch (e) {}
+    });
+
+    // Reveal once the visitor has actually engaged with the page.
+    function reveal() {
+      if (window.pageYOffset > 400) {
+        bar.classList.add('show');
+        window.removeEventListener('scroll', reveal);
+      }
+    }
+    window.addEventListener('scroll', reveal, { passive: true });
+    reveal();
+  });
+})();
