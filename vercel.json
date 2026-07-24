@@ -3,9 +3,21 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/",
+      "has": [{ "type": "host", "value": "merittrimssite.vercel.app" }],
+      "destination": "https://mrtbuttons.com/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "merittrimssite.vercel.app" }],
       "destination": "https://mrtbuttons.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "host", "value": "www.mrtbuttons.com" }],
+      "destination": "https://mrtbuttons.com/",
       "permanent": true
     },
     {
