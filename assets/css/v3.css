@@ -2071,3 +2071,6 @@ section.band .grid.c3 .card .more.btn-spec::after {
 @media (prefers-reduced-motion: reduce) {
   .sticky-quote { transition: none; }
 }
+
+/* matrix table: muted placeholder for combinations we do not stock */
+.spec td.nil{color:var(--grey,#8a8a8a);opacity:.55;text-align:center}
