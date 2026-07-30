@@ -11,7 +11,7 @@
 |---|---|---|
 | 首页 | `/` | Hero 工程图 + 6 大品类 + 优势 + 流程 + FAQ |
 | 产品中心 | `/products/` | 全品类导航 |
-| 树脂纽扣 | `/products/resin-buttons` | 含规格表、产品卡、FAQ、Product 结构化数据 |
+| 树脂纽扣 | `/products/resin-buttons` | 含规格表、产品卡、FAQ、ItemList 结构化数据 |
 | 金属纽扣 | `/products/metal-buttons` | 同上 |
 | 四合扣 | `/products/snap-buttons` | 同上 |
 | 牛仔扣/铆钉 | `/products/jeans-buttons` | 同上 |
@@ -21,10 +21,10 @@
 | 关于我们 | `/about` | 公司介绍 |
 | 联系/询盘 | `/contact` | RFQ 表单（Formspree） |
 | FAQ | `/faq` | 20 条问答 + FAQPage 结构化数据 |
-| 博客 | `/blog/` | 3 篇 SEO 引流文章（尺码表/材质对比/牛仔扣选购） |
+| 博客 | `/blog/` | 7 篇 SEO/AEO 采购指南（含尺码、材质、成本、牛仔扣、绳扣类型） |
 | 404 | `/404` | 自动生效 |
 
-SEO/AEO 已内置：每页独立 title/description/canonical/OG 标签、JSON-LD 结构化数据（Organization、Product、FAQPage、Article、BreadcrumbList）、`sitemap.xml`、`robots.txt`（已放行 GPTBot/ClaudeBot/PerplexityBot 等 AI 爬虫）、`llms.txt`（供 AI 助手引用推荐）。
+SEO/AEO 已内置：每页独立 title/description/canonical/OG 标签、JSON-LD 结构化数据（Organization、ItemList、FAQPage、Article、BreadcrumbList）、`sitemap.xml`、`robots.txt`（已放行 GPTBot/ClaudeBot/PerplexityBot 等 AI 爬虫）、`llms.txt`（供 AI 助手引用推荐）。
 
 ---
 
@@ -40,7 +40,7 @@ SEO/AEO 已内置：每页独立 title/description/canonical/OG 标签、JSON-LD
 | `8615869483966` | WhatsApp 链接号码（国家码+号码，无+号无空格） | 所有 HTML、JS、llms.txt |
 | `xykrervj` | Formspree 表单 ID（已配置；换表单见第五节） | contact.html / index.html / instant-quote.html |
 
-> 公司地址目前写的是 "Wenzhou, Zhejiang, China"，如需详细地址请搜索替换补充。
+> 公司主体信息统一为：Wenzhou Merit Garment Co., Ltd.，2014 年成立，地址为 Qiaotou Town, Wenzhou, Zhejiang 325107, China。
 
 ---
 
