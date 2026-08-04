@@ -70,17 +70,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /* ===== Premium v2 interactions ===== */
 (function () {
-  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var mobile = window.matchMedia("(max-width: 720px)").matches;
+  var reduce = mobile || window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   // header scrolled state
   var hd = document.querySelector("header.site");
   if (hd) {
     var onScroll = function () { hd.classList.toggle("scrolled", window.scrollY > 8); };
-    window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    if (!mobile) onScroll();
   }
 
   // scroll reveal — only hide elements once we know JS+observer will reveal them
-  var targets = document.querySelectorAll(".card, .section-head, .steps > div, .rail-box, details.faq, .prose > h2");
+  var targets = reduce ? [] : document.querySelectorAll(".card, .section-head, .steps > div, .rail-box, details.faq, .prose > h2");
   if ("IntersectionObserver" in window && !reduce && targets.length) {
     document.documentElement.classList.add("js-reveal");
     targets.forEach(function (el, i) {
@@ -96,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // hero stat count-up
-  var stats = document.querySelectorAll(".spec-strip b, .trust-stat b");
+  var stats = reduce ? [] : document.querySelectorAll(".spec-strip b, .trust-stat b");
   if (stats.length && !reduce && "IntersectionObserver" in window) {
     var so = new IntersectionObserver(function (es) {
       es.forEach(function (e) {
