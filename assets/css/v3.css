@@ -161,7 +161,14 @@ section.band.dark .section-head .no { color: var(--fog); }
   background-image:
     linear-gradient(90deg, rgba(8,11,16,.90) 0%, rgba(11,15,21,.82) 31%, rgba(14,18,24,.38) 56%, rgba(14,18,24,.05) 100%),
     linear-gradient(180deg, rgba(5,7,10,.12), rgba(5,7,10,.30)),
-    url("/images/hero-banner-buttons-20260624.webp");
+    url("/images/hero-banner-buttons-20260804.webp");
+  background-image:
+    linear-gradient(90deg, rgba(8,11,16,.90) 0%, rgba(11,15,21,.82) 31%, rgba(14,18,24,.38) 56%, rgba(14,18,24,.05) 100%),
+    linear-gradient(180deg, rgba(5,7,10,.12), rgba(5,7,10,.30)),
+    image-set(
+      url("/images/hero-banner-buttons-20260804.avif") type("image/avif"),
+      url("/images/hero-banner-buttons-20260804.webp") type("image/webp")
+    );
   background-size: cover;
   background-position: center right;
 }
@@ -193,7 +200,13 @@ section.band.dark .section-head .no { color: var(--fog); }
     min-height: 680px;
     background-image:
       linear-gradient(180deg, rgba(8,11,16,.88) 0%, rgba(8,11,16,.76) 54%, rgba(8,11,16,.42) 100%),
-      url("/images/hero-banner-buttons-20260624.webp");
+      url("/images/hero-banner-buttons-20260804.webp");
+    background-image:
+      linear-gradient(180deg, rgba(8,11,16,.88) 0%, rgba(8,11,16,.76) 54%, rgba(8,11,16,.42) 100%),
+      image-set(
+        url("/images/hero-banner-buttons-20260804.avif") type("image/avif"),
+        url("/images/hero-banner-buttons-20260804.webp") type("image/webp")
+      );
     background-position: 66% center;
   }
   .hero.hero-banner .wrap {
