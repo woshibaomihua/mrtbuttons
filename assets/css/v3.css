@@ -200,14 +200,14 @@ section.band.dark .section-head .no { color: var(--fog); }
     min-height: 680px;
     background-image:
       linear-gradient(180deg, rgba(8,11,16,.88) 0%, rgba(8,11,16,.76) 54%, rgba(8,11,16,.42) 100%),
-      url("/images/hero-banner-buttons-20260804.webp");
+      url("/images/hero-banner-buttons-mobile-20260804.webp");
     background-image:
       linear-gradient(180deg, rgba(8,11,16,.88) 0%, rgba(8,11,16,.76) 54%, rgba(8,11,16,.42) 100%),
       image-set(
-        url("/images/hero-banner-buttons-20260804.avif") type("image/avif"),
-        url("/images/hero-banner-buttons-20260804.webp") type("image/webp")
+        url("/images/hero-banner-buttons-mobile-20260804.avif") type("image/avif"),
+        url("/images/hero-banner-buttons-mobile-20260804.webp") type("image/webp")
       );
-    background-position: 66% center;
+    background-position: center;
   }
   .hero.hero-banner .wrap {
     padding-top: 62px;
