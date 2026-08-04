@@ -21,7 +21,7 @@
 | 关于我们 | `/about` | 公司介绍 |
 | 联系/询盘 | `/contact` | RFQ 表单（Formspree） |
 | FAQ | `/faq` | 20 条问答 + FAQPage 结构化数据 |
-| 博客 | `/blog/` | 7 篇 SEO/AEO 采购指南（含尺码、材质、成本、牛仔扣、绳扣类型） |
+| 博客 | `/blog/` | 9 篇 SEO/AEO 采购指南（含尺码、材质、成本、四合扣故障、牛仔扣修复、绳扣类型） |
 | 404 | `/404` | 自动生效 |
 
 SEO/AEO 已内置：每页独立 title/description/canonical/OG 标签、JSON-LD 结构化数据（Organization、ItemList、FAQPage、Article、BreadcrumbList）、`sitemap.xml`、`robots.txt`（已放行 GPTBot/ClaudeBot/PerplexityBot 等 AI 爬虫）、`llms.txt`（供 AI 助手引用推荐）。
@@ -82,10 +82,10 @@ SEO/AEO 已内置：每页独立 title/description/canonical/OG 标签、JSON-LD
 2. **Bing Webmaster Tools**：可直接从 GSC 导入，提交同一 sitemap（Bing 收录会被 ChatGPT 等引用）。
 3. 在阿里国际站店铺简介、邮件签名、WhatsApp 资料中加上独立站链接（外链+品牌信号）。
 4. 替换 SVG 占位图为真实产品图：`tools/` 目录有半自动工具（浏览器一键提取店铺图片地址 + 脚本自动下载压缩替换），详见 `IMAGE-GUIDE.md`。
-5. 之后每月在 `/blog/` 增加 1–2 篇英文行业文章（可参考现有 3 篇的写法），持续积累长尾词。
+5. 之后每月在 `/blog/` 增加 1–2 篇英文行业文章（可参考现有文章的写法），持续积累长尾词。
 
 ## 七、日常修改
 
 - 改文字：直接编辑对应 HTML 文件，提交到 GitHub，Vercel 自动重新部署（约 30 秒）。
-- ⚠️ **不要运行 `sitegen.py` / `gen_*.py` 生成器。** 它们只是最初搭骨架用的，现在已严重过时（缺 7 个辅料/五金品类页、首页是旧版结构、`gen_sitemap.py` 只有 16 条 URL 而线上已 27 条），且输出路径写死为 Linux `/home/claude/merittrims-site`，在本机根本不写回本仓库。**当前站点是在生成结果上手工迭代的，重跑会覆盖并回退现有页面。** 改版一律直接编辑对应 HTML。
+- ⚠️ **不要运行 `sitegen.py` / `gen_*.py` 生成器。** 它们只是最初搭骨架用的，现在已严重过时（缺 7 个辅料/五金品类页、首页是旧版结构、`gen_sitemap.py` 只有 16 条 URL 而当前 sitemap 已 31 条），且输出路径写死为 Linux `/home/claude/merittrims-site`，在本机根本不写回本仓库。**当前站点是在生成结果上手工迭代的，重跑会覆盖并回退现有页面。** 改版一律直接编辑对应 HTML。
 - 新增页面后，手工在 `sitemap.xml` 里补一条 `<url>`（不带末尾斜杠，与 `cleanUrls` 一致）。
