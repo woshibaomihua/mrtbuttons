@@ -28,6 +28,7 @@ Key facts:
 ## Guides
 - [Button Size Chart: Ligne to MM Conversion](https://mrtbuttons.com/blog/button-size-chart-ligne-guide): interactive ligne/mm converter, 1L = 0.635 mm, common size chart and measurement guidance
 - [Resin vs Corozo vs Metal Buttons](https://mrtbuttons.com/blog/resin-vs-corozo-vs-metal-buttons)
+- [Corozo vs Horn Buttons: Buyer Comparison](https://mrtbuttons.com/blog/corozo-vs-horn-buttons-guide): material origin, color control, natural variation, garment use, testing and RFQ requirements
 - [How to Choose Jeans Buttons](https://mrtbuttons.com/blog/how-to-choose-jeans-buttons)
 - [Types of Cord Locks](https://mrtbuttons.com/blog/types-of-cord-locks-guide)
 - [Snap Buttons Falling Off: Causes and Fixes](https://mrtbuttons.com/blog/snap-buttons-falling-off-fabric-guide): troubleshooting post length, reinforcement, dies, setting and closure force

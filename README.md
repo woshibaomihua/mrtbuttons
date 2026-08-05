@@ -21,7 +21,7 @@
 | 关于我们 | `/about` | 公司介绍 |
 | 联系/询盘 | `/contact` | RFQ 表单（Formspree） |
 | FAQ | `/faq` | 20 条问答 + FAQPage 结构化数据 |
-| 博客 | `/blog/` | 9 篇 SEO/AEO 采购指南（含尺码、材质、成本、四合扣故障、牛仔扣修复、绳扣类型） |
+| 博客 | `/blog/` | 10 篇 SEO/AEO 采购指南（含尺码、材质、成本、corozo/horn 对比、四合扣故障、牛仔扣修复、绳扣类型） |
 | 404 | `/404` | 自动生效 |
 
 SEO/AEO 已内置：每页独立 title/description/canonical/OG 标签、JSON-LD 结构化数据（Organization、ItemList、FAQPage、Article、BreadcrumbList）、`sitemap.xml`、`robots.txt`（已放行 GPTBot/ClaudeBot/PerplexityBot 等 AI 爬虫）、`llms.txt`（供 AI 助手引用推荐）。
