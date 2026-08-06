@@ -21,8 +21,32 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
+  function trafficSource() {
+    var source = new URLSearchParams(location.search).get('utm_source');
+    if (source) return source.slice(0, 80);
+    if (document.referrer) {
+      try { return new URL(document.referrer).hostname || 'referral'; } catch (e) {}
+    }
+    return 'direct';
+  }
+
+  function setHiddenField(form, name, value) {
+    var input = form.querySelector('input[name="' + name + '"]');
+    if (!input) {
+      input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = name;
+      form.appendChild(input);
+    }
+    input.value = value;
+  }
+
   // inquiry form: AJAX submit to Formspree (replace YOUR_FORM_ID in HTML action)
   document.querySelectorAll('form.inq, form.mini-form').forEach(function (form) {
+    setHiddenField(form, 'page_url', location.href);
+    setHiddenField(form, 'landing_path', location.pathname);
+    setHiddenField(form, 'traffic_source', trafficSource());
+
     form.addEventListener('submit', function (e) {
       var action = form.getAttribute('action') || '';
       if (action.indexOf('YOUR_FORM_ID') !== -1 || action.indexOf('PENDING_NEW_FORM_ID') !== -1) {
@@ -715,9 +739,81 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 })();
 
-/* ===== WhatsApp entry points: prefill a friendly, context-aware message ===== */
+/* ===== WhatsApp entry points: contextual message + source attribution ===== */
 (function () {
   var WA_NUMBER = '8615869483966';
+
+  function pageCode() {
+    var path = location.pathname.replace(/^\/+|\/+$/g, '');
+    if (!path) return 'MRT-HOME';
+    var parts = path.split('/').filter(Boolean);
+    var prefix = parts[0] === 'products' ? 'MRT-P-' : (parts[0] === 'blog' ? 'MRT-B-' : 'MRT-');
+    var slug = parts[parts.length - 1].replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '').toUpperCase();
+    return (prefix + slug).slice(0, 64);
+  }
+
+  function trafficSource() {
+    var source = new URLSearchParams(location.search).get('utm_source');
+    if (source) return source.slice(0, 80);
+    if (document.referrer) {
+      try { return new URL(document.referrer).hostname || 'referral'; } catch (e) {}
+    }
+    return 'direct';
+  }
+
+  function ctaPosition(a) {
+    if (a.classList.contains('wa-float')) return 'floating';
+    if (a.closest('.sticky-quote')) return 'sticky_bar';
+    if (a.closest('.topbar')) return 'topbar';
+    if (a.closest('.page-hero, .hero')) return 'hero';
+    if (a.closest('footer')) return 'footer';
+    if (a.classList.contains('price-sample-cta')) return 'product_cta';
+    return 'inline';
+  }
+
+  function isWhatsAppLink(a) {
+    if (!a || !a.href) return false;
+    return (a.href.indexOf('wa.me/' + WA_NUMBER) !== -1 ||
+      (a.href.indexOf('api.whatsapp.com/send') !== -1 && a.href.indexOf(WA_NUMBER) !== -1));
+  }
+
+  function upgradeLink(a) {
+    a.setAttribute('target', '_blank');
+    var rel = (a.getAttribute('rel') || '').split(/\s+/).filter(Boolean);
+    ['noopener', 'noreferrer'].forEach(function (token) {
+      if (rel.indexOf(token) === -1) rel.push(token);
+    });
+    a.setAttribute('rel', rel.join(' '));
+
+    try {
+      var url = new URL(a.href, location.href);
+      var code = '[' + pageCode() + ']';
+      var msg = url.searchParams.get('text') || '';
+      if (!msg) msg = 'Hello Merit Trims, I found your website and would like to discuss price, MOQ and samples.';
+      if (msg.indexOf(code) === -1) msg += ' Source: ' + code + '.';
+      url.searchParams.set('text', msg);
+      a.setAttribute('href', url.toString());
+    } catch (e) {}
+  }
+
+  function trackClick(a) {
+    var parts = location.pathname.replace(/^\/+|\/+$/g, '').split('/');
+    var params = {
+      landing_path: location.pathname,
+      product_slug: parts[0] === 'products' ? (parts[1] || '') : '',
+      cta_position: ctaPosition(a),
+      traffic_source: trafficSource(),
+      page_code: pageCode()
+    };
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'whatsapp_click', params);
+    } else {
+      window.dataLayer = window.dataLayer || [];
+      params.event = 'whatsapp_click';
+      window.dataLayer.push(params);
+    }
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     var h1 = document.querySelector('.page-hero h1, h1');
     var line = h1 ? (h1.textContent || '').replace(/\s+/g, ' ').trim() : '';
@@ -732,9 +828,30 @@ document.addEventListener('DOMContentLoaded', function () {
     Array.prototype.forEach.call(links, function (a) {
       if (a.classList.contains('price-sample-cta')) return;        // per-product CTA handled on click
       a.setAttribute('href', href);                                // upgrade the older weak "Hi, I'd like a quote" text
-      if (!a.getAttribute('rel')) a.setAttribute('rel', 'noopener');
+      upgradeLink(a);
     });
   });
+
+  document.addEventListener('click', function (event) {
+    var a = event.target.closest ? event.target.closest('a') : null;
+    if (!isWhatsAppLink(a)) return;
+    upgradeLink(a);   // also covers dynamically inserted and per-product links
+    trackClick(a);
+  });
+
+  if ('MutationObserver' in window) {
+    new MutationObserver(function (mutations) {
+      mutations.forEach(function (mutation) {
+        Array.prototype.forEach.call(mutation.addedNodes, function (node) {
+          if (node.nodeType !== 1) return;
+          var links = node.matches('a') ? [node] : node.querySelectorAll('a');
+          Array.prototype.forEach.call(links, function (a) {
+            if (isWhatsAppLink(a) && !a.classList.contains('price-sample-cta')) upgradeLink(a);
+          });
+        });
+      });
+    }).observe(document.documentElement, { childList: true, subtree: true });
+  }
 })();
 
 /* ===== Mobile sticky inquiry bar: WhatsApp + quote form, always in reach =====
