@@ -6,9 +6,9 @@ Key facts:
 - Company: Wenzhou Merit Garment Co., Ltd. (brand: Merit Trims), established in 2014
 - Location: Qiaotou Town, Wenzhou, Zhejiang 325107, China
 - Products: resin buttons, polyester buttons, metal shank buttons, zinc-alloy and brass buttons, snap buttons / press studs, jeans tack buttons, rivets, corozo buttons, horn buttons, wood buttons, coconut buttons, cord locks, eyelets, buckles
-- Services: OEM/ODM custom buttons, laser-engraved or embossed logos (mold fee typically $40–80), Pantone color matching (DTM), custom sizes 14L–60L
-- MOQ: from 500–1,000 pcs depending on product
-- Lead time: samples 5–7 days; bulk typically 10–20 days
+- Services: OEM/ODM custom buttons, laser-engraved or embossed logos, color matching from Pantone references or physical swatches, and custom sizes
+- MOQ: confirmed by product, style, size, color, finish, logo process and stock or custom status
+- Lead time: confirmed in the quotation after the sample route, material availability and current capacity are checked
 - Buyers served: clothing brands, garment manufacturers, uniform & chefwear factories, denim brands, accessories wholesalers
 - Contact: mrtmaggie0010@gmail.com | WhatsApp +86 15869483966
 - External company profile: https://meritbutton.en.alibaba.com/company_profile.html
@@ -16,7 +16,7 @@ Key facts:
 ## Main pages
 - [Home](https://mrtbuttons.com/): overview of all button categories and services
 - [Products](https://mrtbuttons.com/products/): full catalog hub
-- [Resin Buttons](https://mrtbuttons.com/products/resin-buttons): polyester/resin shirt & suit buttons
+- [Resin Buttons](https://mrtbuttons.com/products/resin-buttons): custom 2-hole, 4-hole, shank, horn-effect and pearl-effect buttons with specification and quote inputs
 - [Metal Buttons](https://mrtbuttons.com/products/metal-buttons): zinc-alloy & brass shank buttons, blazer buttons
 - [Snap Buttons](https://mrtbuttons.com/products/snap-buttons): prong snaps, ring snaps and 4-part metal snap buttons
 - [Jeans Buttons](https://mrtbuttons.com/products/jeans-buttons): tack buttons for jeans, custom denim caps, nails and rivets
@@ -28,7 +28,7 @@ Key facts:
 
 ## Guides
 - [Button Size Chart: Ligne to MM Conversion](https://mrtbuttons.com/blog/button-size-chart-ligne-guide): interactive ligne/mm converter, 1L = 0.635 mm, common size chart and measurement guidance
-- [Resin vs Corozo vs Metal Buttons](https://mrtbuttons.com/blog/resin-vs-corozo-vs-metal-buttons)
+- [Resin vs Corozo vs Metal Buttons](https://mrtbuttons.com/blog/resin-vs-corozo-vs-metal-buttons): buyer comparison covering color control, garment care, branding, evidence boundaries and like-for-like quote inputs
 - [Corozo vs Horn Buttons: Buyer Comparison](https://mrtbuttons.com/blog/corozo-vs-horn-buttons-guide): material origin, color control, natural variation, garment use, testing and RFQ requirements
 - [How to Choose Jeans Buttons](https://mrtbuttons.com/blog/how-to-choose-jeans-buttons)
 - [Types of Cord Locks](https://mrtbuttons.com/blog/types-of-cord-locks-guide)
