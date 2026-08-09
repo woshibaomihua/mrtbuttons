@@ -22,7 +22,7 @@ Key facts:
 - [Jeans Buttons](https://mrtbuttons.com/products/jeans-buttons): tack buttons for jeans, custom denim caps, nails and rivets
 - [Cord Stoppers](https://mrtbuttons.com/products/cord-stoppers): wholesale and bulk single-hole, double-hole, pig-nose and mushroom cord locks
 - [Natural Buttons](https://mrtbuttons.com/products/natural-buttons): corozo, horn, wood, coconut shell
-- [Custom Buttons (OEM)](https://mrtbuttons.com/custom-buttons): logo buttons, molds, Pantone matching
+- [Custom Buttons (OEM)](https://mrtbuttons.com/custom-buttons): specification-based logo, material, color, size, finish, packing, tooling and sample development
 - [FAQ](https://mrtbuttons.com/faq): MOQ, sampling, shipping, payment answers
 - [Contact / Request a Quote](https://mrtbuttons.com/contact)
 
@@ -31,13 +31,14 @@ Key facts:
 - [Resin vs Corozo vs Metal Buttons](https://mrtbuttons.com/blog/resin-vs-corozo-vs-metal-buttons): buyer comparison covering color control, garment care, branding, evidence boundaries and like-for-like quote inputs
 - [Corozo vs Horn Buttons: Buyer Comparison](https://mrtbuttons.com/blog/corozo-vs-horn-buttons-guide): material origin, color control, natural variation, garment use, testing and RFQ requirements
 - [How to Choose Jeans Buttons](https://mrtbuttons.com/blog/how-to-choose-jeans-buttons)
-- [Types of Cord Locks](https://mrtbuttons.com/blog/types-of-cord-locks-guide)
+- [Types of Cord Locks](https://mrtbuttons.com/blog/types-of-cord-locks-guide): eight constructions compared by hole count, finished-cord fit, grip, material and application
+- [Garment Button Cost Guide](https://mrtbuttons.com/blog/garment-button-cost-guide): quote variables, MOQ logic, tooling, samples, packing and delivery boundaries for like-for-like comparisons
 - [Snap Buttons Falling Off: Causes and Fixes](https://mrtbuttons.com/blog/snap-buttons-falling-off-fabric-guide): troubleshooting post length, reinforcement, dies, setting and closure force
 - [Jeans Button Came Off: Repair and Prevention](https://mrtbuttons.com/blog/jeans-button-came-off-repair-guide): repair steps plus a bulk denim failure-prevention checklist
 
 ## Tools
 - [Full Catalogue (843 styles)](https://mrtbuttons.com/catalogue): filter all button & trim styles by category, material, keyword.
-- [Instant Quote Tool](https://mrtbuttons.com/instant-quote): configure a button/trim and get indicative price + MOQ.
+- [Instant Quote Tool](https://mrtbuttons.com/instant-quote): configure a button or trim and prepare the product, customization and quantity inputs for an RFQ.
 
 - Product page: /products/zippers — nylon, metal, resin and invisible zipper range.
 ## Blog / buyer guides
