@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', function () {
             body += k + ': ' + v + '\n';
           }
         });
-        location.href = 'mailto:' + (form.dataset.email || 'mrtmaggie0010@gmail.com') +
+        location.href = 'mailto:' + (form.dataset.email || 'maggie@merittrims.com') +
           '?subject=' + encodeURIComponent('Inquiry from website') +
           '&body=' + encodeURIComponent(body);
         return;
@@ -159,11 +159,11 @@ document.addEventListener('DOMContentLoaded', function () {
             traffic_source: attribution.traffic_source,
             page_type: MRTTracking.pageType()
           });
-          form.innerHTML = '<h3>Inquiry received ✓</h3><p>Thank you. Our sales team will review your specification and reply from mrtmaggie0010@gmail.com. Please also check your spam folder.</p>';
+          form.innerHTML = '<h3>Inquiry received ✓</h3><p>Thank you. Our sales team will review your specification and reply from maggie@merittrims.com. Please also check your spam folder.</p>';
         } else { throw new Error('failed'); }
       }).catch(function () {
         btn.textContent = orig; btn.disabled = false;
-        alert('Could not send right now. Please email us directly: mrtmaggie0010@gmail.com');
+        alert('Could not send right now. Please email us directly: maggie@merittrims.com');
       });
     });
   });
