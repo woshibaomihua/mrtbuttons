@@ -38,6 +38,11 @@ Key facts:
 - [About Merit Trims](https://mrtbuttons.com/about): official company facts, buyer fit, public profile and a five-point supplier verification checklist
 - [Contact / Request a Quote](https://mrtbuttons.com/contact)
 
+## Localized buyer pages
+- [Boutons pour vêtements — Français](https://mrtbuttons.com/fr/boutons-pour-vetements): page for French-speaking apparel buyers covering resin, metal, snap, jeans and natural buttons, customization inputs and B2B quote flow.
+- [Knöpfe für Bekleidung — Deutsch](https://mrtbuttons.com/de/knopfe-fur-bekleidung): page for German-speaking apparel buyers covering Resin-, Metall-, Druck- und Jeansknöpfe, specifications and quote inputs.
+- [Bottoni per abbigliamento — Italiano](https://mrtbuttons.com/it/bottoni-per-abbigliamento): page for Italian-speaking apparel buyers covering resin, metal, automatic, jeans and natural buttons, customization and RFQ inputs.
+
 ## Guides
 - [Button Size Chart: Ligne to MM Conversion](https://mrtbuttons.com/blog/button-size-chart-ligne-guide): interactive ligne/mm converter, 1L = 0.635 mm, common size chart and measurement guidance
 - [Resin vs Corozo vs Metal Buttons](https://mrtbuttons.com/blog/resin-vs-corozo-vs-metal-buttons): buyer comparison covering color control, garment care, branding, evidence boundaries and like-for-like quote inputs
