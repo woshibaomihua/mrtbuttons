@@ -15,7 +15,7 @@
     return "data:image/svg+xml;charset=utf-8,"+encodeURIComponent(s);}
 
   function waLink(pr){
-    var t="Hi Merit Trims, I'd like a quote on: "+pr.title+" (ref "+pr.id+", MOQ "+(pr.moq||"")+"). Please advise price, MOQ and customization.";
+    var t="Hi Merit Trims, I'd like a quote on: "+pr.title+" (ref "+pr.id+"). Please advise price, MOQ and customization after specification review.";
     return "https://wa.me/"+WA+"?text="+encodeURIComponent(t);
   }
   function card(pr){
@@ -24,7 +24,7 @@
       '<img loading="lazy" alt="'+esc(pr.title)+'" data-label="'+esc(cat)+'" src="'+esc(pr.image)+'"></div>'+
       '<div class="t-card__b"><div class="t-card__cat">'+esc(cat)+'</div>'+
       '<div class="t-card__t">'+esc(pr.title)+'</div>'+
-      '<div class="t-card__m"><span>MOQ <b>'+esc(pr.moq||"—")+'</b></span><span><b>'+esc(pr.price_display)+'</b></span></div>'+
+      '<div class="t-card__m"><span>Price &amp; MOQ confirmed after specification review</span></div>'+
       '<a class="t-card__q" href="'+esc(waLink(pr))+'" target="_blank" rel="noopener">Request quote</a>'+
       '</div></div>';
   }
@@ -43,8 +43,7 @@
       if(q&&(pr.title+" "+pr.title_original).toLowerCase().indexOf(q)===-1)return false;
       return true;
     });
-    if(st.sort==="price-asc")FILTERED.sort(function(a,b){return(a.price_lo||1e9)-(b.price_lo||1e9);});
-    else if(st.sort==="price-desc")FILTERED.sort(function(a,b){return(b.price_lo||0)-(a.price_lo||0);});
+    if(st.sort==="name-asc")FILTERED.sort(function(a,b){return a.title.localeCompare(b.title);});
     else FILTERED.sort(function(a,b){return a.rank_score-b.rank_score;});
     shown=0;grid.innerHTML="";render();
     document.getElementById("t-count").textContent=FILTERED.length+" styles";

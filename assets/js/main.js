@@ -15,6 +15,8 @@ var MRTTracking = (function () {
   }
 
   function aiSource(host) {
+    host = clean(host, 120).toLowerCase();
+    if (/^(chatgpt|perplexity|gemini|copilot|claude)$/.test(host)) return host;
     if (/(^|\.)chatgpt\.com$/.test(host)) return 'chatgpt';
     if (/(^|\.)perplexity\.ai$/.test(host)) return 'perplexity';
     if (/(^|\.)gemini\.google\.com$/.test(host)) return 'gemini';
@@ -38,7 +40,7 @@ var MRTTracking = (function () {
       landing_path: clean(location.pathname, 180),
       traffic_source: clean(query.get('utm_source'), 80) || referrerHost || 'direct',
       referrer_host: referrerHost,
-      ai_source: aiSource(referrerHost)
+      ai_source: aiSource(query.get('utm_source') || referrerHost)
     };
     UTM_FIELDS.forEach(function (name) {
       data[name] = clean(query.get(name), 120);
@@ -60,6 +62,7 @@ var MRTTracking = (function () {
       stored = current;
       try { sessionStorage.setItem(STORAGE_KEY, JSON.stringify(stored)); } catch (e) {}
     }
+    stored.ai_source = aiSource(stored.utm_source || stored.referrer_host);
     return stored || current;
   }
 
@@ -118,6 +121,7 @@ document.addEventListener('DOMContentLoaded', function () {
     setHiddenField(form, 'form_path', location.pathname);
     setHiddenField(form, 'landing_path', attribution.landing_path);
     setHiddenField(form, 'traffic_source', attribution.traffic_source);
+    setHiddenField(form, 'ai_source', attribution.ai_source);
     setHiddenField(form, 'referrer_host', attribution.referrer_host);
     ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(function (name) {
       setHiddenField(form, name, attribution[name]);
@@ -157,6 +161,7 @@ document.addEventListener('DOMContentLoaded', function () {
             form_path: location.pathname,
             landing_path: attribution.landing_path,
             traffic_source: attribution.traffic_source,
+            ai_source: attribution.ai_source,
             page_type: MRTTracking.pageType()
           });
           form.innerHTML = '<h3>Inquiry received ✓</h3><p>Thank you. Our sales team will review your specification and reply from maggie@merittrims.com. Please also check your spam folder.</p>';
@@ -192,6 +197,7 @@ document.addEventListener('DOMContentLoaded', function () {
       page_path: location.pathname,
       landing_path: attribution.landing_path,
       traffic_source: attribution.traffic_source,
+      ai_source: attribution.ai_source,
       cta_position: linkPosition(a),
       page_type: MRTTracking.pageType()
     };
@@ -946,6 +952,7 @@ document.addEventListener('DOMContentLoaded', function () {
       product_slug: parts[0] === 'products' ? (parts[1] || '') : '',
       cta_position: ctaPosition(a),
       traffic_source: attribution.traffic_source,
+      ai_source: attribution.ai_source,
       page_code: pageCode()
     };
     MRTTracking.event('whatsapp_click', params);

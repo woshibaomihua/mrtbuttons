@@ -1,4 +1,4 @@
-/* Merit Trims — instant quote configurator (computes from the live 843-SKU range) */
+/* Merit Trims — specification builder for a written quotation */
 (function () {
   "use strict";
   var WA = "8615869483966";
@@ -8,8 +8,6 @@
 
   function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
   function fmt(n){return n.toLocaleString("en-US");}
-  function money(n){return n>=100?"$"+Math.round(n).toLocaleString("en-US"):"$"+n.toFixed(2);}
-  function pct(a,p){a=a.slice().sort(function(x,y){return x-y;});return a[Math.min(a.length-1,Math.floor(p/100*a.length))];}
   function ph(label){label=(label||"Merit Trims").slice(0,20);
     var s='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#283A52"/><stop offset="1" stop-color="#1C2A3E"/></linearGradient></defs><rect width="400" height="400" fill="url(#g)"/><circle cx="200" cy="185" r="62" fill="none" stroke="#C29A4E" stroke-width="6"/><circle cx="182" cy="167" r="6.5" fill="#E4C77E"/><circle cx="218" cy="167" r="6.5" fill="#E4C77E"/><circle cx="182" cy="203" r="6.5" fill="#E4C77E"/><circle cx="218" cy="203" r="6.5" fill="#E4C77E"/></svg>';
     return "data:image/svg+xml;charset=utf-8,"+encodeURIComponent(s);}
@@ -41,17 +39,12 @@
       b.classList.add("is-on");compute();
     });});
   }
-  function moqMode(items){
-    var c={};items.forEach(function(p){if(p.moq)c[p.moq]=(c[p.moq]||0)+1;});
-    var best="",n=0;Object.keys(c).forEach(function(k){if(c[k]>n){n=c[k];best=k;}});
-    return best||"500 pieces";
-  }
   function card(p){
     var cat=(DATA.taxonomy[p.category]||{}).name||p.category;
     var t="Hi Merit Trims, I'd like a quote on: "+p.title+" (ref "+p.id+").";
     return '<div class="t-card"><div class="t-card__img"><img loading="lazy" alt="'+esc(p.title)+'" data-label="'+esc(cat)+'" src="'+esc(p.image)+'"></div>'+
       '<div class="t-card__b"><div class="t-card__cat">'+esc(cat)+'</div><div class="t-card__t">'+esc(p.title)+'</div>'+
-      '<div class="t-card__m"><span>MOQ <b>'+esc(p.moq||"—")+'</b></span><span><b>'+esc(p.price_display)+'</b></span></div>'+
+      '<div class="t-card__m"><span>Price &amp; MOQ confirmed after specification review</span></div>'+
       '<a class="t-card__q" href="https://wa.me/'+WA+'?text='+encodeURIComponent(t)+'" target="_blank" rel="noopener">Request quote</a></div></div>';
   }
   function wireImgs(){document.querySelectorAll("#q-styles .t-card__img img:not([data-w])").forEach(function(im){im.setAttribute("data-w","1");im.addEventListener("error",function h(){im.removeEventListener("error",h);im.src=ph(im.alt);});});}
@@ -60,16 +53,7 @@
     if(!sel.cat)return;
     var items=pool();
     if(!items.length)items=inCat();
-    var los=items.map(function(p){return p.price_lo;}).filter(function(x){return x;});
-    var his=items.map(function(p){return p.price_hi||p.price_lo;}).filter(function(x){return x;});
-    var lo=los.length?pct(los,20):0.05, hi=his.length?pct(his,80):0.5;
-    var mult=sel.logo==="Custom logo"?1.15:1;       // indicative logo premium
-    lo*=mult; hi*=mult;
-    var mid=(lo+hi)/2;
-    document.getElementById("q-price").textContent=money(lo)+" – "+money(hi);
-    document.getElementById("q-price").insertAdjacentHTML("beforeend",'<span style="font-size:.4em;color:#6A7180"> / pc</span>');
-    document.getElementById("q-moq").textContent=moqMode(items);
-    document.getElementById("q-value").textContent="≈ "+money(mid*sel.qty);
+    document.getElementById("q-value").textContent=fmt(sel.qty)+" pcs requested";
     // matches
     var top=items.slice().sort(function(a,b){return a.rank_score-b.rank_score;}).slice(0,4);
     document.getElementById("q-styles").innerHTML=top.map(card).join("");wireImgs();
@@ -77,8 +61,8 @@
     var catName=DATA.taxonomy[sel.cat].name;
     var spec=catName+(sel.mat?(" · "+sel.mat):"")+" · "+fmt(sel.qty)+" pcs · "+sel.logo;
     document.getElementById("q-spec").value=spec;
-    var t="Hi Merit Trims, instant-quote request:%0A"+spec+"%0AIndicative "+money(lo)+"–"+money(hi)+"/pc. Please send a firm quote.";
-    document.getElementById("q-wa").href="https://wa.me/"+WA+"?text="+t;
+    var t="Hi Merit Trims, quotation request:\n"+spec+"\nPlease confirm price, MOQ, sampling and lead time after reviewing my specification.";
+    document.getElementById("q-wa").href="https://wa.me/"+WA+"?text="+encodeURIComponent(t);
   }
 
   // qty + logo controls
